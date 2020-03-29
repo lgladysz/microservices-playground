@@ -1,0 +1,29 @@
+server:
+  port: 8060
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka/
+
+zuul:
+  routes:
+    booking:
+      path: /booking/**
+      serviceId: booking-service
+    cinema:
+      path: /cinema/**
+      serviceId: cinema-service
+    movie:
+      path: /movie/**
+      serviceId: movie-service
+    cas:
+      path: /cas/**
+      serviceId: central-authentication-service
+
+spring:
+  sleuth:
+    sampler:
+      probability: 1.0
+  zipkin:
+    baseUrl: http://localhost:9411/

@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: movie-service
+  cloud:
+    refresh:
+      refreshable: none
+    config:
+      uri: http://localhost:8088
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgresql
+    username: postgresql
+    password:
+    initialization-mode: always
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        default_schema: movie
+        jdbc:
+          lob:
+            non_contextual_creation: true
